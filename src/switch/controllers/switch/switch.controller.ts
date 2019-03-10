@@ -8,12 +8,7 @@ export class SwitchController {
 
   @Post()
   async switch() {
-    this.gs.switch(14, 1);
-    await this.sleep(500);
-    this.gs.switch(14, 0);
-  }
-
-  sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    await this.gs.onOff(14, 500);
+    return;
   }
 }

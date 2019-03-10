@@ -1,13 +1,19 @@
 import { Injectable } from '@nestjs/common';
-import { BinaryValue, Gpio } from 'onoff';
+import { Gpio } from 'onoff';
 
 @Injectable()
 export class GpioService {
 
-  switch(pin: number, value: BinaryValue) {
+  async onOff(pin: number, ms: number) {
 
     const gpio = new Gpio(pin, 'out');
-    gpio.writeSync(value);
+    gpio.writeSync(1);
+    await this.sleep(ms);
+    gpio.writeSync(0);
     gpio.unexport();
+  }
+
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }
