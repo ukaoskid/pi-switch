@@ -7,7 +7,13 @@ export class SwitchController {
   constructor(private readonly gs: GpioService) { }
 
   @Post()
-  switch() {
+  async switch() {
+    this.gs.switch(14, 1);
+    await this.sleep(500);
+    this.gs.switch(14, 1);
+  }
 
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }
