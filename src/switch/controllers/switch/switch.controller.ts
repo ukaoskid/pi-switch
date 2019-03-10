@@ -10,7 +10,7 @@ export class SwitchController {
   async switch() {
     this.gs.switch(14, 1);
     await this.sleep(500);
-    this.gs.switch(14, 1);
+    this.gs.switch(14, 0);
   }
 
   sleep(ms) {
