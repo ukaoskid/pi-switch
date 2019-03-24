@@ -52,6 +52,9 @@
         ],
         "no-trailing-whitespace": [
             false
+        ],
+        "no-console": [
+            false
         ]
     },
     "rulesDirectory": []
